@@ -45,7 +45,7 @@ WITH top_3 AS (
 		(SELECT
 		od.productid,
 		p.productname,
-		COUNT(*) AS total_ordered,
+		SUM(od.quantity) AS total_ordered,
 		o.shipcountry
 		FROM orders o 
 		INNER JOIN orderdetails od ON od.orderid=o.orderid
